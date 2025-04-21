@@ -1,4 +1,7 @@
 const express = require("express");
+const cors = require("cors");
+const userRoutes = require("./routes/user.route");
+const kinkunRoutes = require("./routes/kinkun.route");
 require("dotenv").config();
 
 // สร้าง web server ด้วย express
@@ -14,8 +17,8 @@ app.use(express.json()); //ใช้เพื่อให้ web server สา�
 
 
 // บอก webserver  ว่าจะใช้ url ที่มี prefix อะไรบ้างในการที่จะเรียกใช้งาน api ต่างๆ
-app.use('/user', require('./routes/user'));
-app.use('/kinkun', require('./routes/kinkun'));
+app.use('/user', userRoutes);
+app.use('/kinkun', kinkunRoutes);
 
 
 //  บอก webserver ในการใช้งานไฟล์โฟเดอร์ images
